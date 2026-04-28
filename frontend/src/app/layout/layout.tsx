@@ -1,6 +1,13 @@
+import { Outlet } from "react-router";
+import Header from "../../widgets/header/header";
 
 export default function Layout() {
-  return (
-    <div>layout</div>
-  )
+    return (
+        <>
+            <Header />
+            <main>
+                <Outlet />
+            </main>
+        </>
+    )
 }
