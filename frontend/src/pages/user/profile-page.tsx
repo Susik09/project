@@ -16,16 +16,16 @@ function ProfilePage() {
       <h2 className="profile-card__title">Profile</h2>
       <div className="profile-card__elements">
         <div className="profile-card__name">
-          <p className="profile-card__name-title">Name: {user.data.name}</p>
+          <p className="profile-card__name-title">Name: {user?.data?.name}</p>
         </div>
         <div className="profile-card__role">
-          <p className="profile-card__role-title">Role: {user.data.role}</p>
+          <p className="profile-card__role-title">Role: {user?.data?.role}</p>
         </div>
         <div className="profile-card__isActive">
-          <p className="profile-card__isActive-title">is Active: {user.data.isActive}</p>
+          <p className="profile-card__isActive-title">is Active: {user?.data?.isActive}</p>
         </div>
         <div className="profile-card__email">
-          <p className="profile-card__email-title">Email: {user.data.email}</p>
+          <p className="profile-card__email-title">Email: {user?.data?.email}</p>
         </div>
       </div>
       <button onClick={() => setIsOpen(true)}>Open Update Form</button>

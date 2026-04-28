@@ -9,7 +9,7 @@ export interface IUserStore {
 
 export const UserStore = createStore<IUserStore>((set) => ({
     user: UserStorage.getUserStorage(),
-    setUser: (value: IUserType) => {
+    setUser: (value: IUserType | null) => {
         UserStorage.setUserStorage(value)
         set({ user: value })
     }
