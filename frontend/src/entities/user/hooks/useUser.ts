@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 import type { IUserLogin, IUserRegister } from "../types/user"
 import { UserApi } from "../api/user-api"
 import { UserStorage } from "../model/user-storage"
@@ -23,6 +23,20 @@ export const useUserLogin = () => {
             UserStorage.setAccessToken(data.data.accessToken)
             UserStorage.setRefreshToken(data.data.refreshToken)
             setUser(data.data.user)
+        }
+    })
+}
+export const useUserProfile = () => {
+    return useQuery({
+        queryKey:["users"],
+        queryFn:() => UserApi.userProfile()
+    })
+}
+export const useUserUpdateProfile = () => {
+    return useMutation({
+        mutationFn:(user:IUserRegister) => UserApi.userProfileUpdate(user),
+        onSuccess:(data) => {
+            setUser(data.data)
         }
     })
 }

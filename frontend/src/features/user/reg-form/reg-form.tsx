@@ -4,6 +4,7 @@ import { registerSchema } from "../../../entities/user/model/user-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import type { IUserRegister } from "../../../entities/user/types/user"
 import Loader from "../../../widgets/loader/loader"
+import "./reg-form.scss"
 
 export const RegForm = () => {
     const { mutate, error, isPending,isError } = useUserRegister()
@@ -18,30 +19,30 @@ export const RegForm = () => {
     return (
         <form className="form-reg" onSubmit={handleSubmit((data) => mutate({ email: data.email, password: data.password, name: data.name }))}>
             {isError && <h4>Ошибка: {error.message}</h4>}
-            <label>
+            <label className="form-reg__label">
                 Email
-                <input type="email" {...register("email")} placeholder="Email" />
+                <input type="email" className="form-reg__input" {...register("email")} placeholder="Email" />
                 {errors.email && <p className="errorText">{errors.email.message}</p>}
             </label>
-            <label>
+            <label className="form-reg__label">
                 Password
-                <input type="password" {...register("password")} placeholder="password" />
+                <input type="password" className="form-reg__input" {...register("password")} placeholder="password" />
                 {errors.password && <p className="errorText">{errors.password.message}</p>}
             </label>
-            <label>
+            <label className="form-reg__label">
                 Repeat Password
-                <input type="password" {...register("repeatPassword")} placeholder="repeat password" />
+                <input type="password" className="form-reg__input" {...register("repeatPassword")} placeholder="repeat password" />
                 {errors.repeatPassword && <p className="errorText">{errors.repeatPassword.message}</p>}
             </label>
-            <label>
+            <label className="form-reg__label">
                 Name
-                <input type="text" {...register("name")} placeholder="Name" />
+                <input type="text" className="form-reg__input" {...register("name")} placeholder="Name" />
                 {errors.name && <p className="errorText">{errors.name.message}</p>}
             </label>
             {isPending ? (
                 <Loader />
             ) : (
-                <button disabled={!isValid}>Зарегистрироваться</button>
+                <button className="form-reg__button" disabled={!isValid}>Зарегистрироваться</button>
             )}
         </form>
     )
