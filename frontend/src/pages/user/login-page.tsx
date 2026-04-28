@@ -1,7 +1,8 @@
+import { LoginForm } from "../../features/user/login-form/login-form"
 
 function LoginPage() {
   return (
-    <div>LoginPage</div>
+    <LoginForm/>
   )
 }
 

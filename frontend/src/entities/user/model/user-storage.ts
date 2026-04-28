@@ -12,9 +12,9 @@ export const UserStorage = {
     },
     getAccessToken:() => localStorage.getItem("accessToken"),
     getRefreshToken:() => localStorage.getItem("refreshToken"),
-    getUserStorage:() => {
+    getUserStorage:():IUserType => {
         const user = localStorage.getItem("user")
-        return user ? JSON.parse(user) : null
+        return user && JSON.parse(user)
     },
     clearStorage:() => {
         localStorage.removeItem("accessToken")

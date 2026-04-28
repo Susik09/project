@@ -16,3 +16,8 @@ export interface IUserLogin {
     email:string,
     password:string
 }
+export interface IUserPromise{
+    accessToken:string,
+    refreshToken:string,
+    user:IUserType
+}
