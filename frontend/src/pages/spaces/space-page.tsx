@@ -1,3 +1,4 @@
+import { UserStore } from "../../app/context/user-store"
 import SpacesCard from "../../entities/spaces/ui/spaces-card"
 import { useSpaces } from "../../features/spaces/hook/useSpaces"
 import SpacesCreateForm from "../../features/spaces/ui/spaces-create-form"
@@ -5,6 +6,7 @@ import SpacesCreateForm from "../../features/spaces/ui/spaces-create-form"
 function SpacesPage() {
 
   const { data: spaces, isLoading, isError } = useSpaces()
+  const { user } = UserStore.getState()
 
   return (
     <div>SpacesPage
@@ -14,8 +16,10 @@ function SpacesPage() {
       {isError && <div>
         <h2>{spaces?.error}</h2>
       </div>}
-      <SpacesCreateForm />
-      {spaces.data.map((space) => (
+      {user && (user.role == 'manager' || user.role === 'client' && (
+        <SpacesCreateForm />
+      ))}
+      {spaces?.data.map((space) => (
         <SpacesCard key={space.id} space={space} />
       ))}
     </div>
