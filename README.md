@@ -20,26 +20,25 @@
 
 ## Основные эндпоинты
 
-| Метод | Путь | Описание |
-|--------|------|----------|
-| GET | `/health` | Проверка |
-| POST | `/auth/register` | Регистрация → `client` |
-| POST | `/auth/login` | Вход |
-| POST | `/auth/refresh` | Новый access по `refreshToken` |
-| POST | `/auth/logout` | Выход, нужен `Bearer` |
-| GET | `/users/me` | Профиль |
-| PATCH | `/users/me` | Профиль |
-| GET | `/spaces/popular?limit=3` | Популярные зоны |
-| GET | `/spaces` | Каталог (фильтры как в var2) |
-| GET | `/spaces/:id` | Зона |
-| POST/PUT/DELETE | `/spaces`, `/spaces/:id` | CRUD зон — **manager** |
-| GET | `/bookings` | **client/guest** — свои; **manager** — все |
-| POST | `/bookings` | Бронь — **client** или **manager** |
-| PATCH | `/bookings/:id/cancel` | Отмена `pending` — владелец или **manager** |
-| PATCH | `/bookings/:id/status` | `approved` / `rejected` — **manager** |
-| GET | `/reviews?spaceId=` | Публично, без скрытых |
-| GET | `/reviews/manage?spaceId=` | Все отзывы — **manager** |
-| POST | `/reviews` | Отзыв — **client** или **manager** |
-| PATCH | `/reviews/:id` | Скрыть отзыв — **manager** |
-| DELETE | `/reviews/:id` | Удалить — **manager** |
+| Путь | Описание |
+|------|----------|
+| `/health` | Проверка |
+| `/auth/register` | Регистрация → `client` |
+| `/auth/login` | Вход |
+| `/auth/refresh` | Новый access по `refreshToken` |
+| `/auth/logout` | Выход, нужен `Bearer` |
+| `/users/me` | Профиль |
+| `/spaces/popular?limit=3` | Популярные зоны |
+| `/spaces` | Каталог (фильтры как в var2) |
+| `/spaces/:id` | Зона |
+| `/spaces`, `/spaces/:id` | CRUD зон — **manager** |
+| `/bookings` | **client/guest** — свои; **manager** — все |
+| `/bookings` | Бронь — **client** или **manager** |
+| `/bookings/:id/cancel` | Отмена `pending` — владелец или **manager** |
+| `/bookings/:id/status` | `approved` / `rejected` — **manager** |
+| `/reviews?spaceId=` | Публично, без скрытых |
+| `/reviews/manage?spaceId=` | Все отзывы — **manager** |
+| `/reviews` | Отзыв — **client** или **manager** |
+| `/reviews/:id` | Скрыть отзыв — **manager** |
+| `/reviews/:id` | Удалить — **manager** |
 
