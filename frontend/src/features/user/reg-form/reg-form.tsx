@@ -3,9 +3,10 @@ import { useUserRegister } from "../../../entities/user/hooks/useUser"
 import { registerSchema } from "../../../entities/user/model/user-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import type { IUserRegister } from "../../../entities/user/types/user"
+import Loader from "../../../widgets/loader/loader"
 
 export const RegForm = () => {
-    const { mutate } = useUserRegister()
+    const { mutate, error, isPending } = useUserRegister()
     const {
         register,
         handleSubmit,
@@ -16,6 +17,7 @@ export const RegForm = () => {
 
     return (
         <form className="form-reg" onSubmit={handleSubmit((data) => mutate({ email: data.email, password: data.password, name: data.name }))}>
+            <h4>Ошибка: {error.message}</h4>
             <label>
                 Email
                 <input type="email" {...register("email")} placeholder="Email" />
@@ -36,7 +38,11 @@ export const RegForm = () => {
                 <input type="text" {...register("name")} placeholder="Name" />
                 {errors.name && <p className="errorText">{errors.name.message}</p>}
             </label>
-            <button disabled={!isValid}>Зарегистрироваться</button>
+            {isPending ? (
+                <Loader />
+            ) : (
+                <button disabled={!isValid}>Зарегистрироваться</button>
+            )}
         </form>
     )
 } 
