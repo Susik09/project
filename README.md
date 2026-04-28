@@ -4,6 +4,7 @@
 
 - **`axios`** 
 - **`zod`**
+- **`zustand`**
 - **`react-router`**
 - **`react-hook-form`**
 - **`@hookform/resolvers`**
