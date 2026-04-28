@@ -12,10 +12,10 @@ function SpacesPage() {
         <h2>Loading...</h2>
       </div>}
       {isError && <div>
-        <h2>{spaces.error}</h2>
+        <h2>{spaces?.error}</h2>
       </div>}
       <SpacesCreateForm />
-      {spaces?.data.map((space) => (
+      {spaces.data.map((space) => (
         <SpacesCard key={space.id} space={space} />
       ))}
     </div>

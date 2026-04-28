@@ -1,0 +1,13 @@
+.profile-card{
+    width: 370px;
+    padding: 10px;
+    margin: 10px auto;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    &__elements{
+        display: flex;
+        flex-direction: column;
+        gap:15px;
+        
+    }
+}

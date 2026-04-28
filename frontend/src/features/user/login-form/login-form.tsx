@@ -4,7 +4,7 @@ import { loginSchema } from "../../../entities/user/model/user-schema"
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js"
 import type { IUserLogin } from "../../../entities/user/types/user"
 import Loader from "../../../widgets/loader/loader"
-
+import "./login-form.scss"
 export const LoginForm = () => {
     const { mutate, isPending,error,isError } = useUserLogin()
     const {
