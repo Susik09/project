@@ -8,4 +8,4 @@ export interface ISpacesType {
     description: string
     images: string[]
 }
-export type ISpacesCreateType = Omit<ISpacesType, 'id'>
+export type ISpacesCreateType = Omit<ISpacesType, 'id' | 'images'>
