@@ -6,7 +6,7 @@ import type { IUserRegister } from "../../../entities/user/types/user"
 import Loader from "../../../widgets/loader/loader"
 
 export const RegForm = () => {
-    const { mutate, error, isPending } = useUserRegister()
+    const { mutate, error, isPending,isError } = useUserRegister()
     const {
         register,
         handleSubmit,
@@ -17,7 +17,7 @@ export const RegForm = () => {
 
     return (
         <form className="form-reg" onSubmit={handleSubmit((data) => mutate({ email: data.email, password: data.password, name: data.name }))}>
-            <h4>Ошибка: {error.message}</h4>
+            {isError && <h4>Ошибка: {error.message}</h4>}
             <label>
                 Email
                 <input type="email" {...register("email")} placeholder="Email" />

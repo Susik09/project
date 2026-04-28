@@ -6,7 +6,7 @@ import type { IUserLogin } from "../../../entities/user/types/user"
 import Loader from "../../../widgets/loader/loader"
 
 export const LoginForm = () => {
-    const { mutate, isPending,error } = useUserLogin()
+    const { mutate, isPending,error,isError } = useUserLogin()
     const {
         register,
         handleSubmit,
@@ -17,7 +17,7 @@ export const LoginForm = () => {
 
     return (
         <form className="form-login" onSubmit={handleSubmit((data) => mutate({ email: data.email, password: data.password }))}>
-            <h4>Ошибка: {error.message}</h4>
+            {isError && <h4>Ошибка: {error.message}</h4>}
             <label className="form-login__label">
                 Email
                 <input type="email" className="form-login__input" {...register("email")} placeholder="Email" />
