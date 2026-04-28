@@ -30,7 +30,7 @@ export class SpacesApi {
             return data
         } catch (error) {
             if (isAxiosError(error)) {
-                `Error: ${error.message}`
+                return `Error: ${error.message}`
             }
             return `Error: ${error}`
         }
