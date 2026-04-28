@@ -1,5 +1,14 @@
 # Coworking API — вариант 1 (lab-8/var1)
-```
+
+## Библиотеки
+
+- **`axios`** 
+- **`zod`**
+- **`react-router`**
+- **`react-hook-form`**
+- **`@hookform/resolvers`**
+- **`@tanstack/react-query`**
+
 
 ## Учётные записи после сида
 
