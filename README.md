@@ -1,4 +1,4 @@
-# Coworking API — вариант 1 (lab-8/var1)
+# Coworking 
 
 ## Библиотеки
 
