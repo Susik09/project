@@ -1,7 +1,8 @@
+import { RegForm } from "../../features/user/reg-form/reg-form"
 
 function RegisterPage() {
   return (
-    <div>RegisterPage</div>
+    <RegForm/>
   )
 }
 

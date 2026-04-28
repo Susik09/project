@@ -1,0 +1,18 @@
+.loader{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:4px solid blue;
+    border-top:none;
+    border-bottom:none;
+    animation: loader 3s ease infinite;
+}
+
+@keyframes loader{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
