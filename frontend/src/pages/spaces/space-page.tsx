@@ -14,7 +14,7 @@ function SpacesPage() {
         <h2>Loading...</h2>
       </div>}
       {isError && <div>
-        <h2>{spaces.error}</h2>
+        <h2>{spaces?.error}</h2>
       </div>}
       {user && (user.role == 'manager' || user.role === 'client' && (
         <SpacesCreateForm />
