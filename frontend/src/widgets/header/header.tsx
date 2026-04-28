@@ -1,14 +1,15 @@
 import { Link } from "react-router"
 import { UserStorage } from "../../entities/user/model/user-storage"
 import { UserApi } from "../../entities/user/api/user-api"
-import { UserStore } from "../../context/user-store"
+import { UserStore } from "../../app/context/user-store"
 
 function Header() {
-  const {user} = UserStore.getState()
-  
+  const { user,setUser } = UserStore.getState()
+
   const logout = () => {
     UserStorage.clearStorage()
     UserApi.logout()
+    setUser(null)
   }
   return (
     <nav>

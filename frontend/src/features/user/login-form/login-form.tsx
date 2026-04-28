@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { useUserLogin } from "../../../entities/user/hooks/useUser"
 import { loginSchema } from "../../../entities/user/model/user-schema"
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js"
+import type { IUserLogin } from "../../../entities/user/types/user"
 
 export const LoginForm = () => {
     const {mutate} = useUserLogin()
@@ -9,7 +10,7 @@ export const LoginForm = () => {
         register,
         handleSubmit,
         formState:{isValid,errors}
-    } = useForm({
+    } = useForm<IUserLogin>({
         resolver:zodResolver(loginSchema)
     })
     
