@@ -6,18 +6,24 @@ import type { IUserRegister } from "../../../entities/user/types/user"
 import Loader from "../../../widgets/loader/loader"
 
 export const RegForm = () => {
-    const { mutate, error, isPending,isError } = useUserRegister()
+    const { mutate, error, isPending, isError } = useUserRegister()
     const {
         register,
         handleSubmit,
         formState: { isValid, errors }
     } = useForm<IUserRegister & { repeatPassword: string }>({
-        resolver: zodResolver(registerSchema)
+        resolver: zodResolver(registerSchema),
+        mode: 'onChange'
     })
 
     return (
         <form className="form-reg" onSubmit={handleSubmit((data) => mutate({ email: data.email, password: data.password, name: data.name }))}>
             {isError && <h4>Ошибка: {error.message}</h4>}
+            <label>
+                Name
+                <input type="text" {...register("name")} placeholder="Name" />
+                {errors.name && <p className="errorText">{errors.name.message}</p>}
+            </label>
             <label>
                 Email
                 <input type="email" {...register("email")} placeholder="Email" />
@@ -33,11 +39,7 @@ export const RegForm = () => {
                 <input type="password" {...register("repeatPassword")} placeholder="repeat password" />
                 {errors.repeatPassword && <p className="errorText">{errors.repeatPassword.message}</p>}
             </label>
-            <label>
-                Name
-                <input type="text" {...register("name")} placeholder="Name" />
-                {errors.name && <p className="errorText">{errors.name.message}</p>}
-            </label>
+
             {isPending ? (
                 <Loader />
             ) : (
